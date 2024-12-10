@@ -1,150 +1,195 @@
-#! /usr/bin/python
-
+import sys
+import os
 from py4j.java_gateway import JavaGateway
+from tabulate import tabulate
+from pyvis.network import Network
 
-# connect to the java gateway of dl4python
-gateway = JavaGateway()
+class OntologyReasoner:
+    def __init__(self, ontology_file):
+        # Initialize the connection to Java Gateway and load the ontology
+        self.gateway = JavaGateway()
+        self.owl_parser = self.gateway.getOWLParser()
+        self.formatter = self.gateway.getSimpleDLFormatter()
+        self.el_factory = self.gateway.getELFactory()
 
-# get a parser from OWL files to DL ontologies
-parser = gateway.getOWLParser()
+        print("Loading ontology from file...")
+        self.ontology = self.owl_parser.parseFile(ontology_file)
+        print("Ontology loaded successfully!")
 
-# get a formatter to print in nice DL format
-formatter = gateway.getSimpleDLFormatter()
+        # Convert conjunctions to binary representation
+        print("Converting conjunctions to binary format...")
+        self.gateway.convertToBinaryConjunctions(self.ontology)
 
-print("Loading the ontology...")
+        # Initialize reasoning structures
+        self.subsumption_graph = {}
+        self.equivalence_classes = {}
+        self.disjoint_classes = set()
 
-# load an ontology from a file
-ontology = parser.parseFile("dumplings.owl")
+        # Process axioms in the ontology
+        self._parse_ontology_axioms()
 
-print("Loaded the ontology!")
+    def _concept_to_string(self, concept):
+        """Convert concept object to string."""
+        return self.formatter.format(concept)
 
-# IMPORTANT: the algorithm from the lecture assumes conjunctions to always be over two concepts
-# Ontologies in OWL can however have conjunctions over an arbitrary number of concpets.
-# The following command changes all conjunctions so that they have at most two conjuncts
-print("Converting to binary conjunctions")
-gateway.convertToBinaryConjunctions(ontology)
+    def _parse_ontology_axioms(self):
+        """Parse and process all axioms in the ontology."""
+        for axiom in self.ontology.tbox().getAxioms():
+            axiom_type = axiom.getClass().getSimpleName()
 
-# get the TBox axioms
-tbox = ontology.tbox()
-axioms = tbox.getAxioms()
+            if axiom_type == "GeneralConceptInclusion":
+                self._process_subsumption_axiom(axiom)
+            elif axiom_type == "EquivalentClasses":
+                self._process_equivalence_axiom(axiom)
+            elif axiom_type == "DisjointClassesAxiom":
+                self._process_disjoint_axiom(axiom)
 
-print("These are the axioms in the TBox:")
-for axiom in axioms:
-    print(formatter.format(axiom))
+    def _process_subsumption_axiom(self, axiom):
+        """Process subsumption axioms, handle conjunctions."""
+        lhs = axiom.lhs()
+        rhs = axiom.rhs()
+        lhs_str = self._concept_to_string(lhs)
+        rhs_str = self._concept_to_string(rhs)
 
-# get all concepts occurring in the ontology
-allConcepts = ontology.getSubConcepts()
+        if lhs.getClass().getSimpleName() == "Conjunction":
+            left_conjunct = self._concept_to_string(lhs.getConjunct1())
+            right_conjunct = self._concept_to_string(lhs.getConjunct2())
+            self._add_subsumption_relation(left_conjunct, rhs_str)
+            self._add_subsumption_relation(right_conjunct, rhs_str)
 
-print("There are ", len(allConcepts), " concepts occurring in the ontology")
-print("These are the concepts occurring in the ontology:")
-print([formatter.format(x) for x in allConcepts])
+        self._add_subsumption_relation(lhs_str, rhs_str)
 
-conceptNames = ontology.getConceptNames()
+    def _process_equivalence_axiom(self, axiom):
+        """Process equivalence axioms and create equivalence classes."""
+        equivalences = [self._concept_to_string(cls) for cls in axiom.getEquivalentClasses()]
+        for i, eq_class in enumerate(equivalences):
+            self.equivalence_classes[eq_class] = set(equivalences[:i] + equivalences[i+1:])
 
-print("There are ", len(conceptNames), " concept names occurring in the ontology")
-print("These are the concept names: ")
-print([formatter.format(x) for x in conceptNames])
+    def _process_disjoint_axiom(self, axiom):
+        """Handle disjoint class axioms."""
+        disjoint_set = [self._concept_to_string(cls) for cls in axiom.getDisjointClasses()]
+        for i in range(len(disjoint_set)):
+            for j in range(i + 1, len(disjoint_set)):
+                self.disjoint_classes.add((disjoint_set[i], disjoint_set[j]))
 
-# access the type of axioms:
-foundGCI = False
-foundEquivalenceAxiom = False
-print("Looking for axiom types in EL")
-for axiom in axioms:
-    axiomType = axiom.getClass().getSimpleName()
-    if(not(foundGCI) and axiomType == "GeneralConceptInclusion"):
-        print("I found a general concept inclusion:")
-        print(formatter.format(axiom))
-        print("The left hand side of the axiom is: ", formatter.format(axiom.lhs()))
-        print("The right hand side of the axiom is: ", formatter.format(axiom.rhs()))
-        print()
-        foundGCI = True
-    elif(not(foundEquivalenceAxiom) and axiomType == "EquivalenceAxiom"):
-        print("I found an equivalence axiom:")
-        print(formatter.format(axiom))
-        print("The concepts made equivalent are: ")
-        for concept in axiom.getConcepts():
-            print(" - "+formatter.format(concept))
-        foundEquivalenceAxiom = True
+    def _add_subsumption_relation(self, lhs, rhs):
+        """Store subsumption relation in the graph."""
+        if lhs not in self.subsumption_graph:
+            self.subsumption_graph[lhs] = set()
+        self.subsumption_graph[lhs].add(rhs)
 
-# accessing the relevant types of concepts:
-foundConceptName=False
-foundTop=False
-foundExistential=False
-foundConjunction=False
-foundConceptTypes = set()
+    def compute_subsumers_and_subclasses(self, concept):
+        """Compute the subsumption hierarchy and subclasses for a given concept."""
+        subsumers = set()   # To store the superclasses (subsumers)
+        subclasses = set()  # To store the direct subclasses
+        reasoning_steps = []  # To track reasoning steps
 
-print("Looking for concept types in EL")
-for concept in allConcepts:
-    conceptType = concept.getClass().getSimpleName()
-    if(not(conceptType in foundConceptTypes)): 
-        print(conceptType)
-        foundConceptTypes.add(conceptType)
-    if(not(foundConceptName) and conceptType == "ConceptName"):
-        print("I found a concept name: "+formatter.format(concept))
-        print()
-        foundConceptName = True
-    elif(not(foundTop) and conceptType == "TopConcept$"):
-        print("I found the top concept: "+formatter.format(concept))
-        print()
-        foundTop = True
-    elif(not(foundExistential) and conceptType == "ExistentialRoleRestriction"):
-        print("I found an existential role restriction: "+formatter.format(concept))
-        print("The role is: "+formatter.format(concept.role()))
-        print("The filler is: "+formatter.format(concept.filler()))
-        print()
-        foundExistential = True
-    elif(not(foundConjunction) and conceptType == "ConceptConjunction"):
-        print("I found a conjunction: "+formatter.format(concept))
-        print("The conjuncts are: ")
-        for conjunct in concept.getConjuncts():
-            print(" - "+formatter.format(conjunct))
-        print()
-        foundConjunction=True
+        # 1. Find all subsumers (superclasses) for the given concept
+        # We use a queue to perform a breadth-first search (BFS)
+        queue = [concept]
+        while queue:
+            current = queue.pop(0)
+            
+            # Look for the direct superclasses (subsumers) of current class
+            if current in self.subsumption_graph:
+                for super_concept in self.subsumption_graph[current]:
+                    if super_concept not in subsumers:
+                        subsumers.add(super_concept)
+                        reasoning_steps.append(f"Direct subsumption: {current} ⊑ {super_concept}")
+                        queue.append(super_concept)  # Add the super-concept to the queue for further exploration
 
-# Creating EL concepts and axioms
+        # 2. Find **direct subclasses** for the given concept
+        # Check for axioms that specify this concept as a subclass
+        for axiom in self.ontology.tbox().getAxioms():
+            axiom_type = axiom.getClass().getSimpleName()
+            
+            if axiom_type == "GeneralConceptInclusion":
+                lhs = axiom.lhs()
+                rhs = axiom.rhs()
+                lhs_str = self._concept_to_string(lhs)
+                rhs_str = self._concept_to_string(rhs)
 
-elFactory = gateway.getELFactory()
+                # Look for axioms where the concept is on the RHS of the inclusion, i.e., it is a subclass of the LHS.
+                if rhs_str == concept:  # If the rhs is the concept, lhs is a direct superclass
+                    subclasses.add(lhs_str)
+                    reasoning_steps.append(f"Direct subclass: {lhs_str} ⊑ {concept}")
 
-conceptA = elFactory.getConceptName("A")
-conceptB = elFactory.getConceptName("B")
-conjunctionAB = elFactory.getConjunction(conceptA, conceptB)
-role = elFactory.getRole("r")
-existential = elFactory.getExistentialRoleRestriction(role, conjunctionAB)
-top = elFactory.getTop()
-conjunction2 = elFactory.getConjunction(top, existential)
+        return subsumers, subclasses, reasoning_steps
 
-gci = elFactory.getGCI(conjunctionAB, conjunction2)
 
-print("I made the following GCI:")
-print(formatter.format(gci))
 
-# Using the reasoners
+    def reason_about_concept(self, class_name):
+        """Reason about a specific concept in the ontology."""
+        if not (class_name.startswith('"') and class_name.endswith('"')):
+            class_name = f'"{class_name}"'
 
-elk = gateway.getELKReasoner()
-hermit = gateway.getHermiTReasoner() # might the upper case T!
+        concept = self.el_factory.getConceptName(class_name)
+        concept_str = self._concept_to_string(concept)
 
-dumpling_concept = elFactory.getConceptName("dumplings:Dumpling")
+        subsumers, subclasses, reasoning_steps = self.compute_subsumers_and_subclasses(concept_str)
 
-def print_results(reasoner, concept):
-    print(f"\nResults from {reasoner.__class__.__name__}:")
-    reasoner.setOntology(ontology)
+        # Display reasoning results
+        print("\nDirect Subsumers (Superclasses):")
+        if subsumers:
+            print(tabulate([[s] for s in sorted(subsumers)], headers=["Superclasses"], tablefmt="pretty"))
+        else:
+            print("No direct superclasses found.")
 
-    # Get the subsumers for the given concept
-    subsumers = reasoner.getSubsumers(concept)
-    print(f"According to {reasoner.__class__.__name__}, {formatter.format(concept)} has the following subsumers:")
-    for subsumer in subsumers:
-        print(" - ", formatter.format(subsumer))
-    print(f"({len(subsumers)} in total)")
+        print("\nDirect Subclasses:")
+        if subclasses:
+            print(tabulate([[s] for s in sorted(subclasses)], headers=["Subclasses"], tablefmt="pretty"))
+        else:
+            print("No direct subclasses found.")
 
-    # Classify the ontology and print the result
-    classificationResult = reasoner.classify()
-    print("Classification result: (too large to display)")
+        print("\nReasoning Steps:")
+        for step in reasoning_steps:
+            print(f"  {step}")
 
-# Option to print classification and subsumer results
-should_print = True  # Set to False to skip printing
+        return subsumers, subclasses
 
-if should_print:
-    print_results(elk, dumpling_concept)
-    print_results(hermit, dumpling_concept)
-else:
-    print("Results will not be printed.")
+
+    def visualize_ontology(self):
+        """Visualize the ontology as an interactive graph."""
+        network = Network(height="750px", width="100%", bgcolor="#222222", font_color="white", notebook=True)
+        network.force_atlas_2based(gravity=-50)
+
+        nodes = set()
+        edges = set()
+
+        for axiom in self.ontology.tbox().getAxioms():
+            axiom_type = axiom.getClass().getSimpleName()
+            if axiom_type == "GeneralConceptInclusion":
+                lhs = self.formatter.format(axiom.lhs())
+                rhs = self.formatter.format(axiom.rhs())
+                for node, color in [(lhs, "#97c2fc"), (rhs, "#ffcccb")]:
+                    if node not in nodes:
+                        network.add_node(node, label=node, color=color)
+                        nodes.add(node)
+                
+                edge = (lhs, rhs)
+                if edge not in edges:
+                    network.add_edge(lhs, rhs, title="Subsumes")
+                    edges.add(edge)
+
+        output_file = "ontology_visualization.html"
+        network.show(output_file)
+        print(f"Interactive ontology visualization saved as '{output_file}'")
+
+def main():
+    if len(sys.argv) != 3:
+        print("Usage: python ontology_reasoner.py ONTOLOGY_FILE CLASS_NAME")
+        sys.exit(1)
+
+    ontology_file = sys.argv[1]
+    class_name = sys.argv[2]
+
+    if not os.path.exists(ontology_file):
+        print(f"Error: Ontology file '{ontology_file}' does not exist.")
+        sys.exit(1)
+
+    reasoner = OntologyReasoner(ontology_file)
+    subsumers, subclasses = reasoner.reason_about_concept(class_name)
+    reasoner.visualize_ontology()
+
+if __name__ == "__main__":
+    main()

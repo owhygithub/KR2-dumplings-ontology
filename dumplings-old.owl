@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/marin/ontologies/2024/11/dumplings"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/marin/ontologies/2024/11/dumplings">
+    <Prefix name="dumplings" IRI="http://www.semanticweb.org/marin/ontologies/2024/11/dumplings"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    
+    <!-- Declarations for Classes -->
+    <Declaration>
+        <Class IRI="dumplings:Flavor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Baking"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:BeefFilling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:BoiledDumpling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Boiling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:ChickenFilling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:ChiliOil"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:CookingMethod"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:DietaryRestriction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Dough"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Dumpling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:DumplingCombo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Filling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:FriedDumpling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Frying"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:GlutenFree"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:GlutenFreeDough"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:GlutenFreeSteamedDumpling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Halal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Ingredient"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:LactoseIntolerantFriendly"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:MeatDumpling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:MeatFilling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:NutFree"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:PopularDumpling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:PorkFilling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Sauce"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Savory"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:SesameOil"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:ShellfishFree"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:ShrimpFilling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:SoySauce"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Spicy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:SpicyFriedDumpling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:SteamedDumpling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Steaming"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Sweet"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:TofuFilling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Vegan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:VeganBoiledDumpling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:VegetableFilling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Vegetarian"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:VegetarianDumpling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dumplings:Vinegar"/>
+    </Declaration>
+
+    <!-- Declarations for Object Properties -->
+    <Declaration>
+        <ObjectProperty IRI="dumplings:cookedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="dumplings:hasFilling"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="dumplings:hasFlavor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="dumplings:hasIngredient"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="dumplings:isIngredientOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="dumplings:satisfies"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="dumplings:servedWith"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="dumplings:usedFor"/>
+    </Declaration>
+
+    <!-- Equivalent Classes (Matching Pizza Ontology Structure) -->
+    <EquivalentClasses>
+        <Class IRI="dumplings:BoiledDumpling"/>
+        <ObjectIntersectionOf>
+            <Class IRI="dumplings:Dumpling"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="dumplings:cookedBy"/>
+                <Class IRI="dumplings:Boiling"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="dumplings:DumplingCombo"/>
+        <ObjectIntersectionOf>
+            <Class IRI="dumplings:Dumpling"/>
+            <ObjectMinCardinality cardinality="2">
+                <ObjectProperty IRI="dumplings:hasFilling"/>
+                <Class IRI="dumplings:Filling"/>
+            </ObjectMinCardinality>
+            <ObjectExactCardinality cardinality="2">
+                <ObjectProperty IRI="dumplings:servedWith"/>
+                <Class IRI="dumplings:Sauce"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    
+    <!-- Subclass of Relations -->
+    <SubClassOf>
+        <Class IRI="dumplings:Baking"/>
+        <Class IRI="dumplings:CookingMethod"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="dumplings:BeefFilling"/>
+        <Class IRI="dumplings:MeatFilling"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="dumplings:BoiledDumpling"/>
+        <Class IRI="dumplings:Dumpling"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="dumplings:Boiling"/>
+        <Class IRI="dumplings:CookingMethod"/>
+    </SubClassOf>
+</Ontology>
