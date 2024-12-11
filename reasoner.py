@@ -145,12 +145,12 @@ class OntologyReasoner:
         for step in reasoning_steps:
             print(f"  {step}")
 
-        return subsumers, subclasses
+        return subsumers, subclasses, concept_str
 
 
-    def visualize_ontology(self):
+    def visualize_full_ontology(self):
         """Visualize the ontology as an interactive graph."""
-        network = Network(height="750px", width="100%", bgcolor="#222222", font_color="white", notebook=True)
+        network = Network(height="850px", width="100%", bgcolor="#000000", font_color="yellow", notebook=True)
         network.force_atlas_2based(gravity=-50)
 
         nodes = set()
@@ -161,7 +161,7 @@ class OntologyReasoner:
             if axiom_type == "GeneralConceptInclusion":
                 lhs = self.formatter.format(axiom.lhs())
                 rhs = self.formatter.format(axiom.rhs())
-                for node, color in [(lhs, "#97c2fc"), (rhs, "#ffcccb")]:
+                for node, color in [(lhs, "#90EE90"), (rhs, "#ffcccb")]:
                     if node not in nodes:
                         network.add_node(node, label=node, color=color)
                         nodes.add(node)
@@ -171,9 +171,35 @@ class OntologyReasoner:
                     network.add_edge(lhs, rhs, title="Subsumes")
                     edges.add(edge)
 
-        output_file = "ontology_visualization.html"
+        output_file = "full_ontology.html"
         network.show(output_file)
         print(f"Interactive ontology visualization saved as '{output_file}'")
+
+    def visualize_specific_ontology(self,class_name, subsumers, subclasses, concept_str):
+        # Initialize the network
+        network = Network(height="850px", width="100%", bgcolor="#000000", font_color="yellow", notebook=True)
+        network.force_atlas_2based(gravity=-50)
+
+        # Add the specified class as the central node
+        central_color = "#FFA07A"
+        network.add_node(concept_str, label=concept_str, color=central_color)
+
+        # Add subsumers (superclasses) as nodes and edges
+        subsumer_color = "white"
+        for subsumer in subsumers:
+            network.add_node(subsumer, label=subsumer, color=subsumer_color)
+            network.add_edge(subsumer, concept_str, title="Subsumes")
+
+        # Add subclasses as nodes and edges
+        subclass_color = "#98FB98"
+        for subclass in subclasses:
+            network.add_node(subclass, label=subclass, color=subclass_color)
+            network.add_edge(concept_str, subclass, title="Subsumes")
+
+        # Save and show the filtered ontology visualization
+        output_file = f"filtered_ontology_{class_name}.html"
+        network.show(output_file)
+        print(f"Filtered ontology visualization saved as '{output_file}'")
 
 def main():
     if len(sys.argv) != 3:
@@ -188,8 +214,9 @@ def main():
         sys.exit(1)
 
     reasoner = OntologyReasoner(ontology_file)
-    subsumers, subclasses = reasoner.reason_about_concept(class_name)
-    reasoner.visualize_ontology()
+    reasoner.visualize_full_ontology()
+    subsumers, subclasses, concept_str = reasoner.reason_about_concept(class_name)
+    reasoner.visualize_specific_ontology(class_name, subsumers, subclasses, concept_str)
 
 if __name__ == "__main__":
     main()
