@@ -1,0 +1,517 @@
+Prefix(:=<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20>
+
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/AppleFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefGyoza>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefSpringRoll>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BerriesFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Bitter>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BrothBoiling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbageFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbageMeatPierogi>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbagePierogi>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CarrotFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ChampignonsFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CheeseFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CheesePierogi>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ChickenFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ChickenWonTon>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CokkingMethod>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ColdDumpling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CottageCheeseFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Country>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Cream>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CreamChesseFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DomainThing>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingDough>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FishFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FishGyoza>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Food>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ForestFruitPierogi>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FruitFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/GlutenDumpling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/GlutenFreeDumpling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Gyoza>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/HotDumpling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/LettuceFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatPierogi>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MushroomFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/NamedDumpling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Non-VegetarianDumpling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PanFrying>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Pierogi>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PorkFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PorkWonTon>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PotatoFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/RiceDough>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Salty>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sauce>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpGyoza>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpSpringRoll>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpWonTon>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sour>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SourCheeseFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SoySauce>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpinachFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpinachPierogi>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpringRoll>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/StrawberriesFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/StrawberryPierogi>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sweet>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Taste>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/UkranianStylePierogi>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Umami>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ValuePartition>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VeganGyoza>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VegetableFilling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VegetarianDumpling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VeggieSpringRoll>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Vinegrette>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WaterBoiling>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WheatDough>))
+Declaration(Class(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WonTon>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasCountryOfOrigin>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasDough>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasIngredient>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isBaseOf>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isFillingOf>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isIngredientOf>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isMadeBy>))
+Declaration(NamedIndividual(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/China>))
+Declaration(NamedIndividual(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Japan>))
+Declaration(NamedIndividual(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Poland>))
+Declaration(NamedIndividual(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Russia>))
+Declaration(NamedIndividual(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Ukraine>))
+Declaration(NamedIndividual(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Vietnam>))
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasDough> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasDough>)
+
+SubObjectPropertyOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasDough> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasIngredient>)
+InverseObjectProperties(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasDough> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isBaseOf>)
+FunctionalObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasDough>)
+InverseFunctionalObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasDough>)
+
+# Object Property: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling>)
+
+SubObjectPropertyOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasIngredient>)
+InverseObjectProperties(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isFillingOf>)
+FunctionalObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling>)
+InverseFunctionalObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling>)
+
+# Object Property: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasIngredient> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasIngredient>)
+
+InverseObjectProperties(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasIngredient> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isIngredientOf>)
+TransitiveObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasIngredient>)
+ObjectPropertyDomain(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasIngredient> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Food>)
+ObjectPropertyRange(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasIngredient> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Food>)
+
+# Object Property: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste>)
+
+FunctionalObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste>)
+ObjectPropertyRange(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Taste>)
+
+# Object Property: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isBaseOf> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isBaseOf>)
+
+SubObjectPropertyOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isBaseOf> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isIngredientOf>)
+FunctionalObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isBaseOf>)
+InverseFunctionalObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isBaseOf>)
+
+# Object Property: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isFillingOf> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isFillingOf>)
+
+SubObjectPropertyOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isFillingOf> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isIngredientOf>)
+FunctionalObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isFillingOf>)
+
+# Object Property: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isIngredientOf> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isIngredientOf>)
+
+TransitiveObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isIngredientOf>)
+
+# Object Property: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isMadeBy> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isMadeBy>)
+
+SubObjectPropertyOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isMadeBy> owl:topObjectProperty)
+FunctionalObjectProperty(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isMadeBy>)
+ObjectPropertyDomain(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isMadeBy> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings>)
+ObjectPropertyRange(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isMadeBy> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CokkingMethod>)
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/AppleFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/AppleFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/AppleFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FruitFilling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/AppleFilling> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sweet>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatFilling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefFilling> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Umami>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefGyoza> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefGyoza>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefGyoza> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Gyoza>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefGyoza> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefFilling>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefSpringRoll> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefSpringRoll>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefSpringRoll> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpringRoll>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BerriesFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BerriesFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BerriesFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FruitFilling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BerriesFilling> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sweet>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Bitter> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Bitter>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Bitter> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Taste>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BrothBoiling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BrothBoiling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BrothBoiling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CokkingMethod>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbageFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbageFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbageFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VegetableFilling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbageFilling> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Bitter>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbageMeatPierogi> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbageMeatPierogi>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbageMeatPierogi> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Pierogi>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbageMeatPierogi> ObjectUnionOf(ObjectIntersectionOf(ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefFilling>) ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbageFilling>)) ObjectIntersectionOf(ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbageFilling>) ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PorkFilling>))))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbagePierogi> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbagePierogi>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbagePierogi> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Pierogi>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbagePierogi> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbageFilling>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CarrotFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CarrotFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CarrotFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VegetableFilling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CarrotFilling> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Bitter>))
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CarrotFilling> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sweet>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ChampignonsFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ChampignonsFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ChampignonsFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MushroomFilling>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CheeseFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CheeseFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CheeseFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingFilling>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CheesePierogi> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CheesePierogi>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CheesePierogi> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Pierogi>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CheesePierogi> ObjectUnionOf(ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CottageCheeseFilling>) ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CreamChesseFilling>)))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ChickenFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ChickenFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ChickenFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatFilling>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ChickenWonTon> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ChickenWonTon>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ChickenWonTon> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WonTon>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ChickenWonTon> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ChickenFilling>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CokkingMethod> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CokkingMethod>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CokkingMethod> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ValuePartition>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ColdDumpling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ColdDumpling>)
+
+EquivalentClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ColdDumpling> ObjectUnionOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Gyoza> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpringRoll>))
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ColdDumpling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings>)
+DisjointClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ColdDumpling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/HotDumpling>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CottageCheeseFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CottageCheeseFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CottageCheeseFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CheeseFilling>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Country> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Country>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Country> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DomainThing>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Cream> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Cream>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Cream> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sauce>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Cream> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sweet>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CreamChesseFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CreamChesseFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CreamChesseFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CheeseFilling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CreamChesseFilling> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sweet>))
+DisjointClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CreamChesseFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SourCheeseFilling>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingDough> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingDough>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingDough> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Food>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Food>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Food>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasDough> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingDough>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FishFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FishFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FishFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatFilling>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FishGyoza> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FishGyoza>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FishGyoza> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Gyoza>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FishGyoza> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FishFilling>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Food> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Food>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Food> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DomainThing>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ForestFruitPierogi> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ForestFruitPierogi>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ForestFruitPierogi> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Pierogi>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ForestFruitPierogi> ObjectIntersectionOf(ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/AppleFilling>) ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BerriesFilling>) ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/StrawberriesFilling>)))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FruitFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FruitFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FruitFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingFilling>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/GlutenDumpling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/GlutenDumpling>)
+
+EquivalentClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/GlutenDumpling> ObjectIntersectionOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings> ObjectComplementOf(ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasDough> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/RiceDough>))))
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/GlutenDumpling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings>)
+DisjointClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/GlutenDumpling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/GlutenFreeDumpling>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/GlutenFreeDumpling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/GlutenFreeDumpling>)
+
+EquivalentClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/GlutenFreeDumpling> ObjectIntersectionOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings> ObjectComplementOf(ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasDough> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WheatDough>))))
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/GlutenFreeDumpling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Gyoza> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Gyoza>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Gyoza> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/NamedDumpling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Gyoza> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasDough> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WheatDough>))
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Gyoza> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isMadeBy> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BrothBoiling>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/HotDumpling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/HotDumpling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/HotDumpling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/LettuceFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/LettuceFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/LettuceFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VegetableFilling>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingFilling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatFilling> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Umami>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatPierogi> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatPierogi>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatPierogi> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Pierogi>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatPierogi> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatFilling>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MushroomFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MushroomFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MushroomFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingFilling>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/NamedDumpling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/NamedDumpling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/NamedDumpling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Non-VegetarianDumpling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Non-VegetarianDumpling>)
+
+EquivalentClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Non-VegetarianDumpling> ObjectIntersectionOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings> ObjectComplementOf(ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FishFilling>)) ObjectComplementOf(ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatFilling>))))
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Non-VegetarianDumpling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings>)
+DisjointClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Non-VegetarianDumpling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VegetarianDumpling>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PanFrying> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PanFrying>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PanFrying> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CokkingMethod>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Pierogi> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Pierogi>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Pierogi> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/NamedDumpling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Pierogi> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasDough> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WheatDough>))
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Pierogi> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isMadeBy> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WaterBoiling>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PorkFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PorkFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PorkFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatFilling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PorkFilling> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Umami>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PorkWonTon> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PorkWonTon>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PorkWonTon> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WonTon>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PorkWonTon> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PorkFilling>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PotatoFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PotatoFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PotatoFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VegetableFilling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PotatoFilling> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sweet>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/RiceDough> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/RiceDough>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/RiceDough> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingDough>)
+DisjointClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/RiceDough> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WheatDough>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Salty> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Salty>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Salty> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Taste>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sauce> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sauce>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sauce> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Food>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/MeatFilling>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpGyoza> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpGyoza>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpGyoza> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Gyoza>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpGyoza> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpFilling>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpSpringRoll> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpSpringRoll>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpSpringRoll> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpringRoll>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpWonTon> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpWonTon>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpWonTon> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WonTon>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpWonTon> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpFilling>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sour> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sour>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sour> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Taste>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SourCheeseFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SourCheeseFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SourCheeseFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CheeseFilling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SourCheeseFilling> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sour>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SoySauce> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SoySauce>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SoySauce> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sauce>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SoySauce> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Salty>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpinachFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpinachFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpinachFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VegetableFilling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpinachFilling> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sweet>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpinachPierogi> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpinachPierogi>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpinachPierogi> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Pierogi>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpinachPierogi> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpinachFilling>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpringRoll> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpringRoll>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpringRoll> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/NamedDumpling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpringRoll> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasDough> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/RiceDough>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/StrawberriesFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/StrawberriesFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/StrawberriesFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FruitFilling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/StrawberriesFilling> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sweet>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/StrawberryPierogi> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/StrawberryPierogi>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/StrawberryPierogi> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Pierogi>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/StrawberryPierogi> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/StrawberriesFilling>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sweet> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sweet>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sweet> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Taste>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Taste> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Taste>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Taste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ValuePartition>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/UkranianStylePierogi> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/UkranianStylePierogi>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/UkranianStylePierogi> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Pierogi>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/UkranianStylePierogi> ObjectIntersectionOf(ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CottageCheeseFilling>) ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PotatoFilling>)))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Umami> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Umami>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Umami> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Taste>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VeganGyoza> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VeganGyoza>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VeganGyoza> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Gyoza>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VeganGyoza> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VegetableFilling>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VegetableFilling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VegetableFilling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VegetableFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingFilling>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VegetarianDumpling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VegetarianDumpling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VegetarianDumpling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Dumplings>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VeggieSpringRoll> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VeggieSpringRoll>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VeggieSpringRoll> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpringRoll>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Vinegrette> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Vinegrette>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Vinegrette> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sauce>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Vinegrette> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/hasTaste> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sour>))
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WaterBoiling> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WaterBoiling>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WaterBoiling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CokkingMethod>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WheatDough> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WheatDough>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WheatDough> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/DumplingDough>)
+
+# Class: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WonTon> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WonTon>)
+
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WonTon> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/NamedDumpling>)
+SubClassOf(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WonTon> ObjectSomeValuesFrom(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/isMadeBy> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PanFrying>))
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/China> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/China>)
+
+ClassAssertion(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Country> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/China>)
+
+# Individual: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Japan> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Japan>)
+
+ClassAssertion(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Country> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Japan>)
+
+# Individual: <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Poland> (<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Poland>)
+
+ClassAssertion(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Country> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Poland>)
+
+
+DisjointClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/AppleFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BerriesFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/StrawberriesFilling>)
+DisjointClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BeefFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ChickenFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/FishFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PorkFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/ShrimpFilling>)
+DisjointClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Bitter> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Salty> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sour> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Sweet> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Umami>)
+DisjointClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/BrothBoiling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/PanFrying> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WaterBoiling>)
+DisjointClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CabbageFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/CarrotFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/LettuceFilling> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpinachFilling>)
+DisjointClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Cream> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SoySauce> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Vinegrette>)
+DisjointClasses(<http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/Pierogi> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/SpringRoll> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/VeganGyoza> <http://www.semanticweb.org/wikto/ontologies/2024/11/untitled-ontology-20/WonTon>)
+)

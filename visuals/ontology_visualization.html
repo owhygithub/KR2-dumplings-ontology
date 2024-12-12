@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 750px;
+                 background-color: #222222;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "font": {"color": "white"}, "id": "\u22a4", "label": "\u22a4", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "\u2a7d1hasDough.\u22a4", "label": "\u2a7d1hasDough.\u22a4", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "\u2a7d1isBaseOf\u207b.\u22a4", "label": "\u2a7d1isBaseOf\u207b.\u22a4", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "SpinachPierogi", "label": "SpinachPierogi", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "Pierogi", "label": "Pierogi", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Spicy", "label": "Spicy", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "Taste", "label": "Taste", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "SoySauce", "label": "SoySauce", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "Sauce", "label": "Sauce", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "CarrotFilling", "label": "CarrotFilling", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "VegetableFilling", "label": "VegetableFilling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Vinegrette", "label": "Vinegrette", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food", "label": "Food", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "DomainThing", "label": "DomainThing", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "VeggieSpringRoll", "label": "VeggieSpringRoll", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "SpringRoll", "label": "SpringRoll", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Cream", "label": "Cream", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "ForestFruitPierogi", "label": "ForestFruitPierogi", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "\u2203hasTaste.Sweet", "label": "\u2203hasTaste.Sweet", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "\u2a7d1hasFilling.\u22a4", "label": "\u2a7d1hasFilling.\u22a4", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "SpicyDumpling", "label": "SpicyDumpling", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "Dumplings", "label": "Dumplings", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "CabbagePierogi", "label": "CabbagePierogi", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "CreamChesseFilling", "label": "CreamChesseFilling", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "CheeseFilling", "label": "CheeseFilling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "VegetarianDumpling", "label": "VegetarianDumpling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "ShrimpSpringRoll", "label": "ShrimpSpringRoll", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "ShrimpFilling", "label": "ShrimpFilling", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "MeatFilling", "label": "MeatFilling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "WheatBase", "label": "WheatBase", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "DumplingDough", "label": "DumplingDough", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "SourCheeseFilling", "label": "SourCheeseFilling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "FishGyoza", "label": "FishGyoza", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "Gyoza", "label": "Gyoza", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "NamedDumpling", "label": "NamedDumpling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "StrawberriesFilling", "label": "StrawberriesFilling", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "FruitFilling", "label": "FruitFilling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "FishFilling", "label": "FishFilling", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "\u2a7d1hasDough\u207b.\u22a4", "label": "\u2a7d1hasDough\u207b.\u22a4", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "\u2a7d1isFillingOf.\u22a4", "label": "\u2a7d1isFillingOf.\u22a4", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "AppleFilling", "label": "AppleFilling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "SpinachFilling", "label": "SpinachFilling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "GlutenDumpling", "label": "GlutenDumpling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "ShrimpGyoza", "label": "ShrimpGyoza", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "BeefSpringRoll", "label": "BeefSpringRoll", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "DumplingFilling", "label": "DumplingFilling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "ChickenFilling", "label": "ChickenFilling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "PorkFilling", "label": "PorkFilling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "CreamPierogi", "label": "CreamPierogi", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "BeefFilling", "label": "BeefFilling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "MeatPierogi", "label": "MeatPierogi", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "ValuePartition", "label": "ValuePartition", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "\u2203hasDough.DumplingDough", "label": "\u2203hasDough.DumplingDough", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sour", "label": "Sour", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "GlutenFreeDumpling", "label": "GlutenFreeDumpling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "StrawberryPierogi", "label": "StrawberryPierogi", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "\u2a7d1isBaseOf.\u22a4", "label": "\u2a7d1isBaseOf.\u22a4", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Country", "label": "Country", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "VeganGyoza", "label": "VeganGyoza", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "\u2a7d1hasFilling\u207b.\u22a4", "label": "\u2a7d1hasFilling\u207b.\u22a4", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "RiceBase", "label": "RiceBase", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "UkranianStylePierogi", "label": "UkranianStylePierogi", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "LettuceFilling", "label": "LettuceFilling", "shape": "dot"}, {"color": "#ffcccb", "font": {"color": "white"}, "id": "\u2a7d1hasTaste.\u22a4", "label": "\u2a7d1hasTaste.\u22a4", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "BeefGyoza", "label": "BeefGyoza", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "CabbageFilling", "label": "CabbageFilling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Bitter", "label": "Bitter", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sweet", "label": "Sweet", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "ColdDumpling", "label": "ColdDumpling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Non-VegetarianDumpling", "label": "Non-VegetarianDumpling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "HotDumpling", "label": "HotDumpling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "CabbageMeatPierogi", "label": "CabbageMeatPierogi", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "BerriesFilling", "label": "BerriesFilling", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "GongBao", "label": "GongBao", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "WonTon", "label": "WonTon", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"from": "\u22a4", "title": "Subsumes", "to": "\u2a7d1hasDough.\u22a4"}, {"from": "\u22a4", "title": "Subsumes", "to": "\u2a7d1isBaseOf\u207b.\u22a4"}, {"from": "SpinachPierogi", "title": "Subsumes", "to": "Pierogi"}, {"from": "Spicy", "title": "Subsumes", "to": "Taste"}, {"from": "SoySauce", "title": "Subsumes", "to": "Sauce"}, {"from": "CarrotFilling", "title": "Subsumes", "to": "VegetableFilling"}, {"from": "Vinegrette", "title": "Subsumes", "to": "Sauce"}, {"from": "Food", "title": "Subsumes", "to": "DomainThing"}, {"from": "VeggieSpringRoll", "title": "Subsumes", "to": "SpringRoll"}, {"from": "Cream", "title": "Subsumes", "to": "Sauce"}, {"from": "ForestFruitPierogi", "title": "Subsumes", "to": "Pierogi"}, {"from": "Cream", "title": "Subsumes", "to": "\u2203hasTaste.Sweet"}, {"from": "\u22a4", "title": "Subsumes", "to": "\u2a7d1hasFilling.\u22a4"}, {"from": "SpicyDumpling", "title": "Subsumes", "to": "Dumplings"}, {"from": "CabbagePierogi", "title": "Subsumes", "to": "Pierogi"}, {"from": "Sauce", "title": "Subsumes", "to": "Food"}, {"from": "CreamChesseFilling", "title": "Subsumes", "to": "CheeseFilling"}, {"from": "VegetarianDumpling", "title": "Subsumes", "to": "Dumplings"}, {"from": "ShrimpSpringRoll", "title": "Subsumes", "to": "SpringRoll"}, {"from": "ShrimpFilling", "title": "Subsumes", "to": "MeatFilling"}, {"from": "WheatBase", "title": "Subsumes", "to": "DumplingDough"}, {"from": "SourCheeseFilling", "title": "Subsumes", "to": "CheeseFilling"}, {"from": "FishGyoza", "title": "Subsumes", "to": "Gyoza"}, {"from": "NamedDumpling", "title": "Subsumes", "to": "Dumplings"}, {"from": "StrawberriesFilling", "title": "Subsumes", "to": "FruitFilling"}, {"from": "FishFilling", "title": "Subsumes", "to": "MeatFilling"}, {"from": "\u22a4", "title": "Subsumes", "to": "\u2a7d1hasDough\u207b.\u22a4"}, {"from": "Pierogi", "title": "Subsumes", "to": "NamedDumpling"}, {"from": "\u22a4", "title": "Subsumes", "to": "\u2a7d1isFillingOf.\u22a4"}, {"from": "AppleFilling", "title": "Subsumes", "to": "\u2203hasTaste.Sweet"}, {"from": "SpinachFilling", "title": "Subsumes", "to": "VegetableFilling"}, {"from": "GlutenDumpling", "title": "Subsumes", "to": "Dumplings"}, {"from": "ShrimpGyoza", "title": "Subsumes", "to": "Gyoza"}, {"from": "BeefSpringRoll", "title": "Subsumes", "to": "SpringRoll"}, {"from": "VegetableFilling", "title": "Subsumes", "to": "DumplingFilling"}, {"from": "ChickenFilling", "title": "Subsumes", "to": "MeatFilling"}, {"from": "PorkFilling", "title": "Subsumes", "to": "MeatFilling"}, {"from": "SpringRoll", "title": "Subsumes", "to": "NamedDumpling"}, {"from": "CreamPierogi", "title": "Subsumes", "to": "Pierogi"}, {"from": "BeefFilling", "title": "Subsumes", "to": "MeatFilling"}, {"from": "MeatPierogi", "title": "Subsumes", "to": "Pierogi"}, {"from": "Taste", "title": "Subsumes", "to": "ValuePartition"}, {"from": "Dumplings", "title": "Subsumes", "to": "\u2203hasDough.DumplingDough"}, {"from": "DumplingFilling", "title": "Subsumes", "to": "Food"}, {"from": "Sour", "title": "Subsumes", "to": "Taste"}, {"from": "AppleFilling", "title": "Subsumes", "to": "FruitFilling"}, {"from": "GlutenFreeDumpling", "title": "Subsumes", "to": "Dumplings"}, {"from": "FruitFilling", "title": "Subsumes", "to": "DumplingFilling"}, {"from": "StrawberryPierogi", "title": "Subsumes", "to": "Pierogi"}, {"from": "\u22a4", "title": "Subsumes", "to": "\u2a7d1isBaseOf.\u22a4"}, {"from": "Country", "title": "Subsumes", "to": "DomainThing"}, {"from": "VeganGyoza", "title": "Subsumes", "to": "Gyoza"}, {"from": "Dumplings", "title": "Subsumes", "to": "Food"}, {"from": "StrawberriesFilling", "title": "Subsumes", "to": "\u2203hasTaste.Sweet"}, {"from": "\u22a4", "title": "Subsumes", "to": "\u2a7d1hasFilling\u207b.\u22a4"}, {"from": "CheeseFilling", "title": "Subsumes", "to": "DumplingFilling"}, {"from": "RiceBase", "title": "Subsumes", "to": "DumplingDough"}, {"from": "UkranianStylePierogi", "title": "Subsumes", "to": "Pierogi"}, {"from": "LettuceFilling", "title": "Subsumes", "to": "VegetableFilling"}, {"from": "\u22a4", "title": "Subsumes", "to": "\u2a7d1hasTaste.\u22a4"}, {"from": "BeefGyoza", "title": "Subsumes", "to": "Gyoza"}, {"from": "CabbageFilling", "title": "Subsumes", "to": "VegetableFilling"}, {"from": "Gyoza", "title": "Subsumes", "to": "NamedDumpling"}, {"from": "Bitter", "title": "Subsumes", "to": "Taste"}, {"from": "Sweet", "title": "Subsumes", "to": "Taste"}, {"from": "ColdDumpling", "title": "Subsumes", "to": "Dumplings"}, {"from": "Non-VegetarianDumpling", "title": "Subsumes", "to": "Dumplings"}, {"from": "HotDumpling", "title": "Subsumes", "to": "Dumplings"}, {"from": "DumplingDough", "title": "Subsumes", "to": "Food"}, {"from": "CabbageMeatPierogi", "title": "Subsumes", "to": "Pierogi"}, {"from": "BerriesFilling", "title": "Subsumes", "to": "\u2203hasTaste.Sweet"}, {"from": "BerriesFilling", "title": "Subsumes", "to": "FruitFilling"}, {"from": "MeatFilling", "title": "Subsumes", "to": "DumplingFilling"}, {"from": "GongBao", "title": "Subsumes", "to": "NamedDumpling"}, {"from": "WonTon", "title": "Subsumes", "to": "NamedDumpling"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
