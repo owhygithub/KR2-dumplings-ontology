@@ -1,40 +1,37 @@
 from py4j.java_gateway import JavaGateway
 import sys
+import networkx as nx
+import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
 
-# connect to the java gateway of dl4python
 gateway = JavaGateway()
 
-class ELreasoner: 
+# 😎
+class ELReasoner5000: 
     def __init__(self):
+        # JAVA STUFF
         self.elFactory = gateway.getELFactory()
         self.formatter = gateway.getSimpleDLFormatter()
         self.parser = gateway.getOWLParser()
 
-
-    def get_tbox(self, ontology):
-        '''Returns the Tbox of a given ontology'''
+    def get_the_box(self, ontology):
+        '''GET THE Tbox FROM THE ONTOLOGY'''
         gateway.convertToBinaryConjunctions(ontology)
         return ontology.tbox()
     
     def get_axiom_type(self, axiom): 
-        '''Returns the type of the axiom or concept given'''
+        '''FIND OUT WHAT KIND OF AXIOM IT IS'''
         return axiom.getClass().getSimpleName()
 
-    def convert_tbox(self, tbox):
-        '''Converts all equivalence relations in the Tbox to subsumer relations
-        
-        Parameters: tbox: the Tbox to be converted
-        
-        Returns: a list of all axioms in the Tbox'''
-
+    def convert_tbox_to_subsumers(self, tbox):
+        ''' ABOUT SUBSUMERS? '''
         new_tbox = []
         axioms = tbox.getAxioms()
 
-        # Loop over all axioms in the Tbox
         for axiom in axioms: 
-            axiomType = self.get_axiom_type(axiom)
-            # If the axiom is an equivalence axiom, replace by CGIs
-            if axiomType == 'EquivalenceAxiom': 
+            axiom_type = self.get_axiom_type(axiom)
+            if axiom_type == 'EquivalenceAxiom': 
                 concepts = axiom.getConcepts()
                 A = concepts[0]
                 B = concepts[1]
@@ -44,23 +41,17 @@ class ELreasoner:
                 new_tbox.append(gci2)
             else: 
                 new_tbox.append(axiom)
-        # Add T to Tbox
+
         top = self.elFactory.getTop()
         new_tbox.append(top)
         return new_tbox
 
-    def get_concept_names(self, ontology):
-        '''Returns all concept names in a given ontology'''
+    def get_concepts_in_ontology(self, ontology):
+        '''GIMMIE ALL CONCEPTS IN  ONTOLOGY'''
         return ontology.getConceptNames()
     
-    def check_subsumed(self, C0, concept_names, tbox):
-        '''Checks for a single concept C0 whether it is subsumed by a concept D0
-        
-        Parameters: C0 and D0: the concepts that need to be checked
-        O is entailed: C0 <= DO
-        
-        Returns: True or False: True when C0 is subsumed by D0, False if not'''
-        
+    def check_if_subsumed(self, C0, concept_names, tbox):
+        '''IS C0 BEING SUBSUMED BY ANOTHER CONCEPT D0?'''
         model = {'d0': {C0}} 
         relations = {'d0': dict()} 
    
@@ -70,7 +61,7 @@ class ELreasoner:
             new_copy = list(model.items())
             for node, assigned in new_copy:
                 
-                # GCI-rule: If d has C assigned and D is subsumed by C, assign D to d
+                # RULES, RULES, RULES! APPLY THEM ALL!
                 for axiom in tbox:
                     axiom_type = self.get_axiom_type(axiom)
                     if axiom_type == "GeneralConceptInclusion":
@@ -78,14 +69,11 @@ class ELreasoner:
                             assigned.add(axiom.rhs())
                             changed = True
                 
-                #⊤-rule: Add ⊤ to any individual
                 top = self.elFactory.getTop()
                 if top not in assigned:
                     assigned.add(top)
                     changed = True
 
-
-                # And-rule 2: If d has C, D assigned, assign C and D to d.
                 for concept in concept_names:
                     concept_type = self.get_axiom_type(concept)
                     
@@ -97,7 +85,7 @@ class ELreasoner:
                             assigned.add(concept)
                             changed = True
 
-                # Existential-rule 2: If d has an r-successor with C assigned, add Existentialr.C to d
+                # EXCITING STUFF: EXISTENTIAL RULES!
                 if node in relations:
                     for role, successors in list(relations[node].items()):
                         for successor in list(successors):
@@ -116,7 +104,7 @@ class ELreasoner:
                         A = conjuncts[0]
                         B =  conjuncts[1]
 
-                        # And-rule 1: If d has C and D assigned, assign C, D to d.
+                        # APPLY AND RULE 1!
                         if A not in assigned:
                             assigned.add(A)
                             changed = True
@@ -129,40 +117,30 @@ class ELreasoner:
                         role = concept.role()
                         filler = concept.filler()
                         element_found = False
-                        # Existential-rule 1.1 
-                        # If d has Existencer.C assigned and there is an element e with initial concept C assigned, make e the r-successor of d
+                        
                         for element, assignments in new_copy:  
                             if filler in assignments:
                                 element_found = True
-                                # If the node does not exist in relations dictionary yet, create it in the dictionary
                                 if node not in relations:
                                     relations[node] = {}
 
-                                # If the relation does not exist yet, add it to the dictionary of the node in relations
                                 if role not in relations[node]:
                                     relations[node][role] = set()
 
-                                # If the relation and node exist, but the successor is not assigned to the node yet, add it to the relation
                                 if element not in relations[node][role]:
                                     relations[node][role].add(element)
                                     changed = True
-                   
-
-                        # Existential-rule 1.2 
-                        # If d has Existencer.C assigned and there is no element e with initial concept C assigned, add a new r-successor to d, and assign to it as initial concept C.
+                                      
                         if not element_found:
                             new_index = len(model)
                             new_node = f'd{new_index}'
 
-                            # If the node is not yet in the relations dicitonary, create it
                             if node not in relations:
                                 relations[node] = {}
 
-                            # If the role is not in the relations of the node, create it and assign it to an empty set
                             if role not in relations[node]:
                                 relations[node][role] = set()
 
-                            # Now add the new relation to the relations of that node, and add the new node to the model
                             relations[node][role].add(new_node)
                             model[new_node] = {filler}  
                             changed = True  
@@ -172,24 +150,13 @@ class ELreasoner:
     
         return model, relations     
 
-    def get_subsumers(self, input_class, ontology):
-        '''Returns all subsumers of a given class name
-        
-        Parameters: C0: The class name we want to know the subsumers of
-        tbox: the Tbox corresponding to the ontology
-        ontology: the ontology that we are examining
+    def find_all_subsumers(self, input_class, ontology):
+        '''FIND ALL THE SUBSUMERS OF A SPECIFIC CLASS'''
+        tbox = self.get_the_box(ontology)
+        tbox = self.convert_tbox_to_subsumers(tbox)
 
-        Returns: a list of all subsumers of the given class name
-        '''
-
-        # Convert the axioms in the Tbox so it is appropriate for our reasoner
-        tbox = self.get_tbox(ontology)
-        tbox = self.convert_tbox(tbox)
-
-        # Loop over all concept names to find the subsumers of the given class name
         subsumers = []
         concept_names = ontology.getConceptNames()
-        print()
         top = self.formatter.format(self.elFactory.getTop())
         
         first_concept = self.formatter.format(concept_names.iterator().next())
@@ -199,10 +166,9 @@ class ELreasoner:
             C0 = self.elFactory.getConceptName(input_class)
 
         if C0 in concept_names: 
-            model, relations = self.check_subsumed(C0, concept_names, tbox)
+            model, relations = self.check_if_subsumed(C0, concept_names, tbox)
             found_top = False
             for D0 in concept_names: 
-                
                 if D0 in model['d0']:
                     subsumers.append(self.formatter.format(D0))
                 elif not found_top:
@@ -214,20 +180,44 @@ class ELreasoner:
 
             return subsumers
 
+
+    def show_subsumers_graph(self, input_class, subsumers):
+        '''VISUALIZATIONSE'''
+        if not subsumers:
+            print(f"No subsumers found for {input_class}.")
+            return
+
+        G = nx.DiGraph()
+        G.add_node(input_class, color="red", size=3000)
+
+        for subsumer in subsumers:
+            G.add_node(subsumer, color="#ADD8E6", size=2000)
+            G.add_edge(subsumer, input_class)
+
+        pos = nx.spring_layout(G)
+        node_colors = [G.nodes[node]['color'] for node in G.nodes]
+        node_sizes = [G.nodes[node]['size'] for node in G.nodes]
+
+        plt.figure(figsize=(10, 8))
+        nx.draw(G, pos, with_labels=True, node_color=node_colors, node_size=node_sizes, edge_color="black")
+        plt.title(f"Subsumers of {input_class}")
+        plt.savefig(f"{input_class}_subsumers.png")
+
+# Running it..
 if __name__ == '__main__':
     ontology_file = str(sys.argv[1])
-
     C0 = str(sys.argv[2])
 
-    reasoner = ELreasoner()
+    reasoner = ELReasoner5000()
     
     ontology = reasoner.parser.parseFile(ontology_file)
     gateway.convertToBinaryConjunctions(ontology)
     concept_names = ontology.getConceptNames()
 
-    tbox = reasoner.get_tbox(ontology)
-    subsumers = reasoner.get_subsumers(C0, ontology)
+    tbox = reasoner.get_the_box(ontology)
+    subsumers = reasoner.find_all_subsumers(C0, ontology)
     if subsumers != None:
         for subsumer in subsumers:
             print(subsumer)
 
+        reasoner.show_subsumers_graph(C0, subsumers)
